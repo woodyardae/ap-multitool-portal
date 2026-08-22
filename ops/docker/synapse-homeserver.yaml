@@ -1,0 +1,33 @@
+database:
+  allow_unsafe_locale: true
+  args:
+    cp_max: 10
+    cp_min: 5
+    database: synapse
+    host: matrix-db
+    password: synapse_secure_pass_382
+    user: synapse
+  name: psycopg2
+enable_registration: false
+enable_registration_without_verification: false
+form_secret: htMdO:eBT-REP2C0lbasd.yzEdXkVVOloJ061baP.pp0^H8Ja2
+listeners:
+- port: 8008
+  resources:
+  - compress: false
+    names:
+    - client
+    - federation
+  tls: false
+  type: http
+  x_forwarded: true
+log_config: /data/matrix.bosunpkm.com.log.config
+macaroon_secret_key: -BcPfi9dLbwWRTwzM5vO7HyyUzoDU&SNH_w~n,_.ckqJzrg#q#
+media_store_path: /data/media_store
+pid_file: /data/homeserver.pid
+registration_shared_secret: 6#Qj*pg_*&GvHCXnhTAO:7cAno9G6X.tS*p4OPz9cDM;SoCSlu
+report_stats: false
+server_name: matrix.bosunpkm.com
+signing_key_path: /data/matrix.bosunpkm.com.signing.key
+trusted_key_servers:
+- server_name: matrix.org

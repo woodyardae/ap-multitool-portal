@@ -1,0 +1,42 @@
+version: '3'
+services:
+  matrix-db:
+    image: postgres:15-alpine
+    container_name: matrix-db
+    restart: always
+    environment:
+      POSTGRES_USER: synapse
+      POSTGRES_PASSWORD: synapse_secure_pass_382
+      POSTGRES_DB: synapse
+    volumes:
+      - ./db:/var/lib/postgresql/data
+    deploy:
+      resources:
+        limits:
+          memory: 128M
+
+  synapse:
+    image: matrixdotorg/synapse:latest
+    container_name: synapse
+    restart: always
+    ports:
+      - "127.0.0.1:8008:8008"
+    volumes:
+      - ./synapse:/data
+    depends_on:
+      - matrix-db
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+
+  element:
+    image: vectorim/element-web:latest
+    container_name: element
+    restart: always
+    ports:
+      - "127.0.0.1:8082:80"
+    deploy:
+      resources:
+        limits:
+          memory: 64M

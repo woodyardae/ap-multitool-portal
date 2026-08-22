@@ -1,0 +1,25 @@
+services:
+  pixelfed-redis:
+    image: redis:alpine
+    container_name: pixelfed-redis
+    restart: always
+    deploy:
+      resources:
+        limits:
+          memory: 64M
+
+  pixelfed:
+    image: murazaki/pixelfed:edge-apache
+    container_name: pixelfed
+    restart: always
+    ports:
+      - "127.0.0.1:8081:80"
+    volumes:
+      - ./storage:/var/www/storage
+      - ./.env:/var/www/.env
+    depends_on:
+      - pixelfed-redis
+    deploy:
+      resources:
+        limits:
+          memory: 384M
