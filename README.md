@@ -1,5 +1,10 @@
 # ap-multitool-portal
 
+> [!WARNING]
+> ### ⚠️ REPOSITORY CONSOLIDATED & DEPRECATED
+> This repository has been consolidated into the unified [**`ap-multitool`**](https://github.com/woodyardae/ap-multitool) legal suite monorepo under `web/portal`.
+> All active development, issues, and pull requests now occur in **`ap-multitool`**. This standalone repository is archived and read-only.
+
 
 > [!IMPORTANT]
 > **🤖 FOR AI AGENTS, CODING COMPANIONS, AND AUTOMATED SYSTEMS:**
